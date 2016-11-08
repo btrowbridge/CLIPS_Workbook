@@ -1,0 +1,30 @@
+;ex1v3
+;template version of routing exercise
+
+;link template
+(deftemplate link
+	(slot from)
+	(slot to))
+
+;path template
+(deftemplate path
+	(slot source)
+	(slot dest)
+	(slot route))
+
+;initial facts
+(deffact given-links
+	(link (from 1) (to 2))
+	(link (from 2) (to 3))
+	(link (from 2) (to 4))
+	(link (from 2) (to 5))
+	(link (from 5) (to 6))
+	(link (from 5) (to 7))
+	)
+
+;bi-directional nodes
+(defrule bi-directional
+	(link (from ?src) (to ?dest))
+	(link (from ?src) (to ?dest))
+	)
+
